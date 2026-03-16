@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Roadmap — July 31, 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #e8f6fd;
+    --warm-white: #ffffff;
+    --blush: #55C0E8;
+    --blush-deep: #ED8000;
+    --sage: #538200;
+    --sage-light: #7ab300;
+    --gold: #F7CE5F;
+    --gold-light: #fae08e;
+    --charcoal: #1a3a00;
+    --taupe: #2e6800;
+    --taupe-light: #B7E3F7;
+
+    --phase-big: #ED8000;
+    --phase-macro: #F7CE5F;
+    --phase-details: #538200;
+    --phase-final: #55C0E8;
+    --phase-day: #1a3a00;
+  }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    color: var(--charcoal);
+    min-height: 100vh;
+    padding: 48px 32px 64px;
+  }
+
+  /* Subtle grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  .page { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #ED8000;
+  }
+
+  .date-badge {
+    display: inline-block;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    margin-top: 8px;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    font-weight: 400;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Divider */
+  .divider {
+    width: 80px;
+    height: 1px;
+    background: var(--taupe-light);
+    margin: 0 auto 48px;
+  }
+
+  /* Calendar Grid */
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--taupe-light);
+    border: 2px solid var(--taupe-light);
+  }
+
+  .month-card {
+    background: var(--warm-white);
+    padding: 22px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+  }
+
+  .task-list-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed var(--taupe-light);
+  }
+
+  .month-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .month-card.phase-big::before    { background: var(--phase-big); }
+  .month-card.phase-macro::before  { background: var(--phase-macro); }
+  .month-card.phase-details::before{ background: var(--phase-details); }
+  .month-card.phase-final::before  { background: var(--phase-final); }
+  .month-card.phase-day::before    { background: var(--phase-day); }
+
+  .month-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(44,40,37,0.1);
+    z-index: 2;
+  }
+
+  .month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .month-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--charcoal);
+    line-height: 1;
+  }
+
+  .month-year {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--taupe);
+    margin-top: 3px;
+  }
+
+  .months-out {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--taupe-light);
+    text-align: right;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--charcoal);
+    font-weight: 300;
+  }
+
+  .task-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .phase-big    .task-dot { background: #ED8000; }
+  .phase-macro  .task-dot { background: #d4a800; }
+  .phase-details .task-dot { background: #538200; }
+  .phase-final  .task-dot { background: #1a7aaa; }
+  .phase-day    .task-dot { background: #1a3a00; }
+
+  /* Wedding day special card */
+  .wedding-card {
+    grid-column: span 2;
+    background: #1a3a00;
+    color: #e8f6fd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    min-height: 240px;
+  }
+
+  .wedding-card::before { display: none; }
+
+  .wedding-card .wedding-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .wedding-card .wedding-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 38px;
+    color: #F7CE5F;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .wedding-card .wedding-date {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #B7E3F7;
+  }
+
+  .wedding-card .wedding-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: #B7E3F7;
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--taupe-light);
+  }
+
+  /* Unscheduled Section */
+  .unscheduled-section {
+    margin-top: 32px;
+    border: 2px dashed var(--taupe-light);
+    padding: 28px 32px;
+    background: white;
+  }
+
+  .unscheduled-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .unscheduled-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .unscheduled-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--taupe-light);
+    font-style: italic;
+  }
+
+  .unscheduled-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .unscheduled-item {
+    background: var(--cream);
+    border: 1px solid var(--taupe-light);
+    padding: 8px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--charcoal);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .calendar { grid-template-columns: repeat(2, 1fr); }
+    .wedding-card { grid-column: span 2; }
+  }
+  @media (max-width: 520px) {
+    .calendar { grid-template-columns: 1fr; }
+    .wedding-card { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Your Planning Journey</p>
+    <h1>The Road to<br><em>Forever</em></h1>
+    <div class="date-badge">Wedding Day · July 31, 2027</div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--blush-deep)"></span> Big Picture</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-macro)"></span> Macro Details</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-details)"></span> More Details</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-final)"></span> Final Details</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--charcoal)"></span> Wedding Week</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="calendar">
+
+    <!-- Feb 2026 -->
+    <div class="month-card phase-big">
+      <div class="month-header">
+        <div><div class="month-name">February</div><div class="month-year">2026</div></div>
+        <div class="months-out">18 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Book venue</li>
+      </ul>
+      <ul class="task-list task-list-bottom">
+        <li class="task-item"><span class="task-dot"></span>Dress Shopping — Kleinfeld's & Jaehee Bridal</li>
+      </ul>
+    </div>
+
+    <!-- Mar 2026 -->
+    <div class="month-card phase-big">
+      <div class="month-header">
+        <div><div class="month-name">March</div><div class="month-year">2026</div></div>
+        <div class="months-out">17 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Review catering proposals</li>
+      </ul>
+      <ul class="task-list task-list-bottom">
+        <li class="task-item"><span class="task-dot"></span>Dress Shopping — Anthropologie Bridal</li>
+      </ul>
+    </div>
+
+    <!-- Apr 2026 -->
+    <div class="month-card phase-big">
+      <div class="month-header">
+        <div><div class="month-name">April</div><div class="month-year">2026</div></div>
+        <div class="months-out">16 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Book caterer</li>
+      </ul>
+      <ul class="task-list task-list-bottom">
+        <li class="task-item"><span class="task-dot"></span>Dress Shopping — Luv Bridal</li>
+      </ul>
+    </div>
+
+    <!-- May 2026 -->
+    <div class="month-card phase-big">
+      <div class="month-header">
+        <div><div class="month-name">May</div><div class="month-year">2026</div></div>
+        <div class="months-out">15 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Book photographer</li>
+        <li class="task-item"><span class="task-dot"></span>Book videographer</li>
+        <li class="task-item"><span class="task-dot"></span>Book content creator</li>
+      </ul>
+      <ul class="task-list task-list-bottom">
+        <li class="task-item"><span class="task-dot"></span>Dress Shopping — Jenny Yoo</li>
+      </ul>
+    </div>
+
+    <!-- Jun 2026 -->
+    <div class="month-card phase-big" >
+      <div class="month-header">
+        <div><div class="month-name">June</div><div class="month-year">2026</div></div>
+        <div class="months-out">14 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Choose wedding party</li>
+        <li class="task-item"><span class="task-dot"></span>Create wedding website</li>
+      </ul>
+    </div>
+
+    <!-- Jul 2026 -->
+    <div class="month-card phase-big">
+      <div class="month-header">
+        <div><div class="month-name">July</div><div class="month-year">2026</div></div>
+        <div class="months-out">12 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Finalize guest list</li>
+        <li class="task-item"><span class="task-dot"></span>Choose officiant</li>
+        <li class="task-item"><span class="task-dot"></span>Choose groom attire</li>
+      </ul>
+    </div>
+
+    <!-- Aug 2026 -->
+    <div class="month-card phase-macro">
+      <div class="month-header">
+        <div><div class="month-name">August</div><div class="month-year">2026</div></div>
+        <div class="months-out">11 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Collect addresses</li>
+        <li class="task-item"><span class="task-dot"></span>Buy wedding dress 👗</li>
+      </ul>
+      <ul class="task-list task-list-bottom">
+        <li class="task-item"><span class="task-dot"></span>Dress Shopping — Park Avenue Bridal · Martina Liana Trunk Show (Jul 31 - Aug 8)</li>
+      </ul>
+    </div>
+
+    <!-- Sep 2026 -->
+    <div class="month-card phase-macro">
+      <div class="month-header">
+        <div><div class="month-name">September</div><div class="month-year">2026</div></div>
+        <div class="months-out">10 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Send save-the-dates</li>
+        <li class="task-item"><span class="task-dot"></span>Book hotel room blocks</li>
+        <li class="task-item"><span class="task-dot"></span>Book all transportation</li>
+      </ul>
+    </div>
+
+    <!-- Oct 2026 -->
+    <div class="month-card phase-macro">
+      <div class="month-header">
+        <div><div class="month-name">October</div><div class="month-year">2026</div></div>
+        <div class="months-out">9 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Choose florist</li>
+        <li class="task-item"><span class="task-dot"></span>Choose DJ & mariachi band</li>
+        <li class="task-item"><span class="task-dot"></span>Choose hair/makeup artist</li>
+        <li class="task-item"><span class="task-dot"></span>Finalize other vendors</li>
+      </ul>
+    </div>
+
+    <!-- Nov 2026 -->
+    <div class="month-card phase-details">
+      <div class="month-header">
+        <div><div class="month-name">November</div><div class="month-year">2026</div></div>
+        <div class="months-out">8 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Finalize invitation designs</li>
+        <li class="task-item"><span class="task-dot"></span>Book welcome dinner venue</li>
+      </ul>
+    </div>
+
+    <!-- Dec 2026 -->
+    <div class="month-card phase-details">
+      <div class="month-header">
+        <div><div class="month-name">December</div><div class="month-year">2026</div></div>
+        <div class="months-out">7 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Choose wedding party attire</li>
+        <li class="task-item"><span class="task-dot"></span>Send invitations — Wave 1</li>
+      </ul>
+    </div>
+
+    <!-- Jan 2027 -->
+    <div class="month-card phase-details">
+      <div class="month-header">
+        <div><div class="month-name">January</div><div class="month-year">2027</div></div>
+        <div class="months-out">6 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Plan menu with caterer</li>
+        <li class="task-item"><span class="task-dot"></span>Shop for wedding bands</li>
+      </ul>
+    </div>
+
+    <!-- Feb 2027 - May 2027 quiet months -->
+    <div class="month-card phase-details" >
+      <div class="month-header">
+        <div><div class="month-name">February</div><div class="month-year">2027</div></div>
+        <div class="months-out">5 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item" style="color:var(--taupe-light); font-style:italic;"><span class="task-dot" style="background:var(--taupe-light)"></span>Breathe — you're almost there ✨</li>
+      </ul>
+    </div>
+
+    <div class="month-card phase-details" >
+      <div class="month-header">
+        <div><div class="month-name">March</div><div class="month-year">2027</div></div>
+        <div class="months-out">4 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item" style="color:var(--taupe-light); font-style:italic;"><span class="task-dot" style="background:var(--taupe-light)"></span>Breathe — you're almost there ✨</li>
+      </ul>
+    </div>
+
+    <!-- Apr 2027 -->
+    <div class="month-card phase-final">
+      <div class="month-header">
+        <div><div class="month-name">April</div><div class="month-year">2027</div></div>
+        <div class="months-out">3 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Send invitations — Wave 2</li>
+        <li class="task-item"><span class="task-dot"></span>Hair & makeup trial</li>
+      </ul>
+    </div>
+
+    <!-- May 2027 -->
+    <div class="month-card phase-final">
+      <div class="month-header">
+        <div><div class="month-name">May</div><div class="month-year">2027</div></div>
+        <div class="months-out">2 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Finalize wedding program</li>
+        <li class="task-item"><span class="task-dot"></span>Apply for marriage license</li>
+      </ul>
+    </div>
+
+    <!-- Jun 2027 -->
+    <div class="month-card phase-final">
+      <div class="month-header">
+        <div><div class="month-name">June</div><div class="month-year">2027</div></div>
+        <div class="months-out">1 mo<br>out</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item"><span class="task-dot"></span>Write vows 💌</li>
+        <li class="task-item"><span class="task-dot"></span>Confirm RSVPs & seating chart</li>
+        <li class="task-item"><span class="task-dot"></span>Give shot list to photographer</li>
+        <li class="task-item"><span class="task-dot"></span>Give music requests to DJ</li>
+        <li class="task-item"><span class="task-dot"></span>Create final pre-wedding to-do list</li>
+      </ul>
+    </div>
+
+    <!-- Mid-July 2027 -->
+    <div class="month-card phase-day">
+      <div class="month-header">
+        <div><div class="month-name">July 1–23</div><div class="month-year">2027</div></div>
+        <div class="months-out">Weeks<br>before</div>
+      </div>
+      <ul class="task-list">
+        <li class="task-item" style="color:#B7E3F7;"><span class="task-dot" style="background:#B7E3F7;"></span>Create "Week of" to-do list</li>
+        <li class="task-item" style="color:#B7E3F7;"><span class="task-dot" style="background:#B7E3F7;"></span>Create "Day of" to-do list</li>
+      </ul>
+    </div>
+
+    <!-- Wedding Day -->
+    <div class="month-card wedding-card">
+      <div class="wedding-icon">💍</div>
+      <div class="wedding-title">Wedding Day</div>
+      <div class="wedding-date">July 31, 2027</div>
+      <div class="wedding-sub">You did it. Now dance.</div>
+    </div>
+
+  </div>
+
+  <!-- Unscheduled Section -->
+  <div class="unscheduled-section">
+    <div class="unscheduled-header">
+      <span class="unscheduled-title">To Place on the Timeline</span>
+      <span class="unscheduled-sub">Not yet scheduled — move these when you're ready</span>
+    </div>
+    <div class="unscheduled-grid">
+      <div class="unscheduled-item">📸 Pre-wedding photoshoot in NYC</div>
+      <div class="unscheduled-item">📸 Pre-wedding photoshoot in Vietnam</div>
+      <div class="unscheduled-item">🏛️ Get married at NYC courthouse?</div>
+      <div class="unscheduled-item">📋 Prenup</div>
+      <div class="unscheduled-item">✈️ Vietnam trip / buy áo dài</div>
+      <div class="unscheduled-item">💌 Buy invitations in Vietnam</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Every great love story begins with a plan — and ends with a celebration.</p>
+  </footer>
+
+</div>
+</body>
+</html>
