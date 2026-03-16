@@ -406,6 +406,20 @@
     color: var(--charcoal);
   }
 
+  /* Lynn view — teal */
+  .page[data-view="lynn"] h1 em                         { color: #55C0E8; }
+  .page[data-view="lynn"] .month-card::before            { background: #55C0E8; }
+  .page[data-view="lynn"] .task-dot                      { border-color: #55C0E8; }
+  .page[data-view="lynn"] .task-dot.checked              { background: #55C0E8; }
+  .page[data-view="lynn"] .task-list-bottom .task-dot    { background: #55C0E8; }
+
+  /* Matt view — dark green */
+  .page[data-view="matt"] h1 em                         { color: #1a3a00; }
+  .page[data-view="matt"] .month-card::before            { background: #1a3a00; }
+  .page[data-view="matt"] .task-dot                      { border-color: #1a3a00; }
+  .page[data-view="matt"] .task-dot.checked              { background: #1a3a00; }
+  .page[data-view="matt"] .task-list-bottom .task-dot    { background: #1a3a00; }
+
   .task-item.hidden {
     display: none;
   }
@@ -717,6 +731,7 @@
       btn.classList.add('active');
 
       var view = btn.getAttribute('data-view');
+      document.querySelector('.page').setAttribute('data-view', view);
       document.querySelectorAll('.task-item[data-owner]').forEach(function(item) {
         if (view === 'combined') {
           item.classList.remove('hidden');
