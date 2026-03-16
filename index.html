@@ -410,6 +410,10 @@
     display: none;
   }
 
+  .task-list-bottom.hidden {
+    display: none;
+  }
+
   @media (max-width: 900px) {
     .calendar { grid-template-columns: repeat(2, 1fr); }
     .wedding-card { grid-column: span 2; }
@@ -718,6 +722,12 @@
         } else {
           item.classList.toggle('hidden', item.getAttribute('data-owner') !== view);
         }
+      });
+      document.querySelectorAll('.task-list-bottom').forEach(function(section) {
+        var hasVisible = Array.from(section.querySelectorAll('.task-item')).some(function(item) {
+          return !item.classList.contains('hidden');
+        });
+        section.classList.toggle('hidden', !hasVisible);
       });
     });
   });
