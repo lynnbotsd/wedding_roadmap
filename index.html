@@ -229,18 +229,31 @@
   }
 
   .task-dot {
-    width: 5px;
-    height: 5px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     flex-shrink: 0;
-    margin-top: 5px;
+    margin-top: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
   }
 
-  .phase-big    .task-dot { background: #ED8000; }
-  .phase-macro  .task-dot { background: #d4a800; }
-  .phase-details .task-dot { background: #538200; }
-  .phase-final  .task-dot { background: #1a7aaa; }
-  .phase-day    .task-dot { background: #1a3a00; }
+  .phase-big     .task-dot { border: 1.5px solid #ED8000; background: transparent; }
+  .phase-macro   .task-dot { border: 1.5px solid #d4a800; background: transparent; }
+  .phase-details .task-dot { border: 1.5px solid #538200; background: transparent; }
+  .phase-final   .task-dot { border: 1.5px solid #1a7aaa; background: transparent; }
+  .phase-day     .task-dot { border: 1.5px solid #1a3a00; background: transparent; }
+
+  .phase-big     .task-dot.checked { background: #ED8000; }
+  .phase-macro   .task-dot.checked { background: #d4a800; }
+  .phase-details .task-dot.checked { background: #538200; }
+  .phase-final   .task-dot.checked { background: #1a7aaa; }
+  .phase-day     .task-dot.checked { background: #1a3a00; }
+
+  .task-item.done {
+    opacity: 0.4;
+    text-decoration: line-through;
+  }
 
   /* Wedding day special card */
   .wedding-card {
@@ -716,6 +729,23 @@
           item.classList.toggle('hidden', item.getAttribute('data-owner') !== view);
         }
       });
+    });
+  });
+
+  document.querySelectorAll('.task-dot').forEach(function(dot) {
+    var key = 'task:' + dot.parentElement.textContent.trim();
+    if (localStorage.getItem(key) === 'done') {
+      dot.classList.add('checked');
+      dot.parentElement.classList.add('done');
+    }
+    dot.addEventListener('click', function() {
+      var checked = dot.classList.toggle('checked');
+      dot.parentElement.classList.toggle('done', checked);
+      if (checked) {
+        localStorage.setItem(key, 'done');
+      } else {
+        localStorage.removeItem(key);
+      }
     });
   });
 </script>
