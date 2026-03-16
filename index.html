@@ -250,6 +250,17 @@
   .phase-final   .task-dot.checked { background: #1a7aaa; }
   .phase-day     .task-dot.checked { background: #1a3a00; }
 
+  /* Dress shopping dots — filled, non-interactive */
+  .task-list-bottom .task-dot {
+    pointer-events: none;
+    cursor: default;
+  }
+  .phase-big     .task-list-bottom .task-dot { background: #ED8000; }
+  .phase-macro   .task-list-bottom .task-dot { background: #d4a800; }
+  .phase-details .task-list-bottom .task-dot { background: #538200; }
+  .phase-final   .task-list-bottom .task-dot { background: #1a7aaa; }
+  .phase-day     .task-list-bottom .task-dot { background: #1a3a00; }
+
   .task-item.done {
     opacity: 0.4;
     text-decoration: line-through;
