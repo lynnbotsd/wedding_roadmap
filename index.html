@@ -23,10 +23,10 @@
     --navy: #1a2e5c;
 
     --phase-big: #ED8000;
-    --phase-macro: #F7CE5F;
-    --phase-details: #538200;
-    --phase-final: #55C0E8;
-    --phase-day: #1a3a00;
+    --phase-macro: #ED8000;
+    --phase-details: #ED8000;
+    --phase-final: #ED8000;
+    --phase-day: #ED8000;
   }
 
   body {
@@ -238,28 +238,15 @@
     transition: background 0.15s ease;
   }
 
-  .phase-big     .task-dot { border: 1.5px solid #ED8000; background: transparent; }
-  .phase-macro   .task-dot { border: 1.5px solid #d4a800; background: transparent; }
-  .phase-details .task-dot { border: 1.5px solid #538200; background: transparent; }
-  .phase-final   .task-dot { border: 1.5px solid #1a7aaa; background: transparent; }
-  .phase-day     .task-dot { border: 1.5px solid #1a3a00; background: transparent; }
-
-  .phase-big     .task-dot.checked { background: #ED8000; }
-  .phase-macro   .task-dot.checked { background: #d4a800; }
-  .phase-details .task-dot.checked { background: #538200; }
-  .phase-final   .task-dot.checked { background: #1a7aaa; }
-  .phase-day     .task-dot.checked { background: #1a3a00; }
+  .task-dot { border: 1.5px solid #ED8000; background: transparent; }
+  .task-dot.checked { background: #ED8000; }
 
   /* Dress shopping dots — filled, non-interactive */
   .task-list-bottom .task-dot {
     pointer-events: none;
     cursor: default;
+    background: #ED8000;
   }
-  .phase-big     .task-list-bottom .task-dot { background: #ED8000; }
-  .phase-macro   .task-list-bottom .task-dot { background: #d4a800; }
-  .phase-details .task-list-bottom .task-dot { background: #538200; }
-  .phase-final   .task-list-bottom .task-dot { background: #1a7aaa; }
-  .phase-day     .task-list-bottom .task-dot { background: #1a3a00; }
 
   .task-item.done {
     opacity: 0.4;
@@ -441,14 +428,6 @@
     <h1>The Road to<br><em>Forever</em></h1>
     <div class="date-badge">Wedding Day · July 31, 2027</div>
   </header>
-
-  <div class="legend">
-    <div class="legend-item"><span class="legend-dot" style="background:var(--blush-deep)"></span> Big Picture</div>
-    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-macro)"></span> Macro Details</div>
-    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-details)"></span> More Details</div>
-    <div class="legend-item"><span class="legend-dot" style="background:var(--phase-final)"></span> Final Details</div>
-    <div class="legend-item"><span class="legend-dot" style="background:var(--charcoal)"></span> Wedding Week</div>
-  </div>
 
   <div class="divider"></div>
 
