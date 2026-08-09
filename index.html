@@ -218,6 +218,24 @@
     gap: 5px;
   }
 
+  .task-group {
+    list-style: none;
+  }
+
+  .subtask-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 6px 0 0 16px;
+    padding-left: 10px;
+    border-left: 1px solid var(--taupe-light);
+  }
+
+  .subtask-list .task-item {
+    font-size: 11.5px;
+  }
+
   .task-item {
     display: flex;
     align-items: flex-start;
@@ -557,9 +575,8 @@
         <div class="months-out">10 mo<br>out</div>
       </div>
       <ul class="task-list">
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book photographer &amp; videographer</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book day-of coordinator</li>
-        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Research DJs</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book photographer &amp; videographer</li>
         <li class="task-item" data-owner="matt"><span class="task-dot"></span>Research mariachi bands</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Research florists</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Confirm wedding party</li>
@@ -577,10 +594,8 @@
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Hair &amp; makeup trial</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Pre-wedding photoshoot in NYC</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Create wedding website</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book trolley service?</li>
+        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Research DJs</li>
         <li class="task-item" data-owner="matt"><span class="task-dot"></span>Plan groom attire</li>
-        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Book DJ &amp; mariachi band</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book florist</li>
         <li class="task-item" data-owner="matt"><span class="task-dot"></span>First draft of prenup complete</li>
       </ul>
     </div>
@@ -592,13 +607,21 @@
         <div class="months-out">8 mo<br>out</div>
       </div>
       <ul class="task-list">
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Vietnam trip — Nov 19–Dec 5</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Pre-wedding photoshoot in Vietnam</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Buy áo dài in Vietnam</li>
-        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Buy groom attire in Vietnam</li>
+        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Book mariachi band</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book florist</li>
+        <li class="task-item" data-owner="matt"><span class="task-dot"></span>Book DJ</li>
+        <li class="task-group">
+          <div class="task-item"><span class="task-dot"></span>Vietnam trip — Nov 19–Dec 5</div>
+          <ul class="subtask-list">
+            <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Pre-wedding photoshoot</li>
+            <li class="task-item" data-owner="matt"><span class="task-dot"></span>Buy groom attire</li>
+            <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Buy áo dài</li>
+          </ul>
+        </li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Finalize guest list</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Collect addresses</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book content creator?</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Book trolley service?</li>
       </ul>
     </div>
 
@@ -610,9 +633,8 @@
       </div>
       <ul class="task-list">
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Finalize invitation designs</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Buy invitations in Vietnam</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Choose wedding party attire</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send save-the-dates — late December</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send save-the-dates — Dec 15</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Shop for wedding bands</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Plan wedding magazine</li>
       </ul>
@@ -626,6 +648,7 @@
       </div>
       <ul class="task-list">
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Work on wedding magazine</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Schedule second tasting with Coast Catering — March or April</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Schedule NYC courthouse ceremony for Feb 1</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Obtain NYC marriage license</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Finalize other vendors</li>
@@ -641,7 +664,8 @@
       </div>
       <ul class="task-list">
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Get married at NYC courthouse — February 1 💍</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send invitations — Wave 1 (early February)</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send invitations — Wave 1 (Feb 15)</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Confirm second tasting menu</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Work on wedding magazine</li>
         <li class="task-item" data-owner="matt"><span class="task-dot"></span>Start dance lessons</li>
       </ul>
@@ -656,8 +680,7 @@
         <li class="task-item" data-owner="matt"><span class="task-dot"></span>Start ceremony planning with officiant</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Second menu tasting with caterer</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Finalize wedding magazine</li>
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Wave 1 RSVP deadline — mid-March</li>
-        <li class="task-item" style="font-style:italic;"><span class="task-dot"></span>Breathe — you're almost there ✨</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Wave 1 RSVP deadline — March 31</li>
       </ul>
     </div>
 
@@ -668,7 +691,7 @@
         <div class="months-out">3 mo<br>out</div>
       </div>
       <ul class="task-list">
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send invitations — Wave 2 (early April)</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Send invitations — Wave 2 (April 15)</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Confirm menu with caterer</li>
       </ul>
     </div>
@@ -680,7 +703,7 @@
         <div class="months-out">2 mo<br>out</div>
       </div>
       <ul class="task-list">
-        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Wave 2 RSVP deadline — mid-May</li>
+        <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Wave 2 RSVP deadline — May 31</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Confirm RSVPs &amp; seating chart</li>
         <li class="task-item" data-owner="lynn"><span class="task-dot"></span>Finalize wedding program</li>
       </ul>
